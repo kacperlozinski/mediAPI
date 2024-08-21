@@ -1,0 +1,31 @@
+﻿
+@model About
+
+<h1>@Model?.Title</h1>
+<h1>@Model?.Description</h1>
+
+<p>Tags:</p>
+
+@if (Model == null)
+{
+    throw new Exception("Model is null");
+}
+
+@if (Model.Title == null)
+{
+    throw new Exception("Title is null");
+}
+
+@if (Model.Tags == null)
+{
+    throw new Exception("Tags list is null");
+}
+<ul>
+    @if (Model.Tags != null)
+    {
+        foreach (var tag in Model.Tags)
+        {
+            <li>@tag</li>
+        }
+    }
+</ul>
